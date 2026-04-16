@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, feat/iot-agent-mqtt-broker ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, feat/iot-agent-mqtt-broker ]
 
 jobs:
   pipeline:
