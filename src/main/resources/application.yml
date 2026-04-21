@@ -13,3 +13,21 @@ management:
   endpoint:
     health:
       show-details: always
+      datasource:
+        url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://iot-agent-database:5432/iot_agent}
+        username: ${SPRING_DATASOURCE_USERNAME:gte}
+        password: ${SPRING_DATASOURCE_PASSWORD:gte}
+        driver-class-name: org.postgresql.Driver
+      jpa:
+        hibernate:
+          ddl-auto: update
+        open-in-view: false
+      security:
+        oauth2:
+          resourceserver:
+            jwt:
+              jwk-set-uri: http://iot-agent-authentication:8080/.well-known/jwks.json
+
+
+      secret: "${JWT_SECRET:supersecretkey}"
+      expiration: 86400000
